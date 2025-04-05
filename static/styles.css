@@ -1,0 +1,103 @@
+/* styles.css */
+
+body {
+    background: #0f0f0f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 170, 0.15);
+}
+
+h2, h3 {
+    text-align: center;
+    color: #00ffc8;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+input, select {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: #2b2b2b;
+    color: #f0f0f0;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #00ffc8, #007d7d);
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00d6aa, #006060);
+    box-shadow: 0 0 12px #00ffc8;
+}
+
+/* Table Styling */
+.table-container {
+    margin-top: 40px;
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #222;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.styled-table thead {
+    background-color: #00ffc8;
+    color: #000;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #2c2c2c;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #333;
+}
+
+.styled-table td:last-child {
+    font-weight: bold;
+    color: #00ffc8;
+}
