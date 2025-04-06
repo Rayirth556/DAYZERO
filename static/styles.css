@@ -1,0 +1,149 @@
+/* Base styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    min-height: 100vh;
+    padding-top: 30px;
+}
+
+/* Two-column layout */
+.main-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Left and right panels */
+.left-panel {
+    flex: 1;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.right-panel {
+    flex: 2;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Headings */
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00e0ff;
+}
+
+/* Labels and inputs */
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+    color: #e0f7fa;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #00bcd4;
+    background-color: #111;
+}
+
+/* Buttons */
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00e0ff;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #00bcd4;
+}
+
+/* Analyze and fetch form section spacing */
+.analyze-form,
+.fetch-form {
+    margin-top: 25px;
+}
+
+/* Result containers */
+.insight-box,
+.table-container {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #00bcd4;
+}
+
+/* Table styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+.data-table th {
+    background-color: #00bcd4;
+    color: #000;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 1000px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        max-width: 90%;
+    }
+}

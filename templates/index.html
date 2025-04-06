@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Suggestion Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function updateTable() {
+            const res = await fetch("/table");
+            const html = await res.text();
+            document.getElementById("table-container").innerHTML = html;
+        }
+
+        async function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            await fetch("/submit", {
+                method: "POST",
+                body: data
+            });
+            form.reset();
+            updateTable();
+        }
+
+        window.onload = updateTable;
+    </script>
+</head>
+<body>
+    <div class="main-container">
+
+        <!-- Left Panel: Form -->
+        <div class="left-panel">
+            <h2>📊 Investor Data Entry</h2>
+
+            <form onsubmit="submitForm(event)" class="data-form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" required>
+
+                <label for="age">Age:</label>
+                <input type="number" name="age" required>
+
+                <label for="salary">Salary:</label>
+                <input type="number" name="salary" required>
+
+                <label for="position">Position:</label>
+                <input type="text" name="position" required>
+
+                <label for="yoe">Years of Experience (YOE):</label>
+                <input type="number" name="yoe" required>
+
+                <label for="bonus_percent">Bonus Percentage:</label>
+                <input type="number" step="0.1" name="bonus_percent" required>
+
+                <label for="investment_expert">Investment Expertise:</label>
+                <select name="investment_expert" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <button type="submit">➕ Add Entry</button>
+            </form>
+
+            <!-- Analyze Button -->
+            <form action="/analyze" method="post" class="analyze-form">
+                <button type="submit">🔍 Analyze All Data</button>
+            </form>
+
+            <!-- Fetch Person Info -->
+            <form action="/fetch_person" method="post" class="fetch-form">
+                <label for="fetch_name">Fetch Investor Info by Name:</label>
+                <input type="text" name="fetch_name" placeholder="Enter name..." required>
+                <button type="submit">👤 Fetch Details</button>
+            </form>
+
+            {% if person_info %}
+                <div class="insight-box">
+                    <h3>👤 Investor Details</h3>
+                    <ul>
+                        {% for key, value in person_info.items() %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {% if prediction %}
+                <div class="insight-box">
+                    <h3>📈 Stock Insight</h3>
+                    <p><strong>{{ prediction }}</strong></p>
+                    <ul>
+                        <li><strong>Total Entries:</strong> {{ count }}</li>
+                        <li><strong>Increases:</strong> {{ inc }}</li>
+                        <li><strong>Decreases:</strong> {{ dec }}</li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Right Panel: Live Table -->
+        <div class="right-panel">
+            <h3>📋 Submitted Data</h3>
+            <div id="table-container" class="table-container">
+                <!-- DataTable will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
