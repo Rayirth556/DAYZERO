@@ -1,26 +1,38 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 import joblib
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from data_preprocessing import load_and_clean_data, preprocess_data
-import os
+from preprocess import create_preprocessor
+
+# Paths
+DATA_FILE = "data.csv"
+PREPROCESSOR_PATH = "model/saved/preprocessor.pkl"
+MODEL_PATH = "model/saved/stock_predictor.pkl"
 
 def train_model():
-    df = load_and_clean_data("/home/godkiller/killerjack/data.csv")
-    X, y, preprocessor = preprocess_data(df)
+    df = pd.read_csv(DATA_FILE)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Drop rows missing any critical input or label
+    df = df.dropna(subset=["age", "yoe", "bonus_percent", "investment_expert", "label"])
 
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
+    if df.empty:
+        print("[ERROR] No data left after dropping missing values. Please check your dataset.")
+        return
 
-    y_pred = model.predict(X_test)
-    print(classification_report(y_test, y_pred))
+    # Ignore if 'prediction' column is missing
+    X_raw = df.drop(columns=["name", "label", "prediction"], errors='ignore')
+    y = df["label"]
 
-    # Save the model and preprocessor
-    os.makedirs("model/saved", exist_ok=True)
-    joblib.dump(model, "model/saved/stock_predictor.pkl")
-    joblib.dump(preprocessor, "model/saved/preprocessor.pkl")
+    # Preprocess and train
+    preprocessor = create_preprocessor()
+    X = preprocessor.fit_transform(X_raw)
+
+    model = RandomForestClassifier()
+    model.fit(X, y)
+
+    joblib.dump(model, MODEL_PATH)
+    joblib.dump(preprocessor, PREPROCESSOR_PATH)
+
+    print("[INFO] Model training complete.")
 
 if __name__ == "__main__":
     train_model()
