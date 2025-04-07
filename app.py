@@ -1,4 +1,4 @@
-#hello murgooooo, aagam teri maa nangi hai
+#hello murgooooo, lelihana ka maa mrei
 
 from flask import Flask, request, render_template, jsonify
 import pandas as pd
