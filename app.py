@@ -1,4 +1,3 @@
-# murgo please merge the python files 
 
 
 from flask import Flask, request, render_template, jsonify
