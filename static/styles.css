@@ -9,6 +9,44 @@ body {
     padding-top: 30px;
 }
 
+/* === Dashboard Header === */
+.dashboard-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: #f9fafb;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    animation: pulseBorder 4s infinite ease-in-out;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.dashboard-header h1 span {
+    color: #38bdf8;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    color: #cbd5e1;
+}
+
+@keyframes pulseBorder {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+}
+
 /* === Layout === */
 .main-container {
     display: flex;
@@ -49,7 +87,7 @@ h2, h3 {
     color: #00e0ff;
 }
 
-/* === Form Labels and Inputs === */
+/* === Form Labels & Inputs === */
 label {
     display: block;
     margin: 12px 0 6px;
@@ -96,13 +134,13 @@ button:hover {
     background-color: #00bcd4;
 }
 
-/* === Forms (analyze/fetch) === */
+/* === Form Wrappers === */
 .analyze-form,
 .fetch-form {
     margin-top: 25px;
 }
 
-/* === Data Display Containers === */
+/* === Containers === */
 .insight-box,
 .table-container {
     margin-top: 30px;
@@ -117,7 +155,7 @@ button:hover {
     overflow: auto;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
@@ -147,6 +185,7 @@ table tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.02);
 }
 
+/* Optional Dark Table */
 .data-table th, .data-table td {
     padding: 12px 15px;
     text-align: left;
@@ -158,7 +197,7 @@ table tr:nth-child(even) {
     color: #000;
 }
 
-/* === Responsive Adjustments === */
+/* === Responsive Design === */
 @media screen and (max-width: 1000px) {
     .main-container {
         flex-direction: column;
@@ -172,21 +211,39 @@ table tr:nth-child(even) {
     }
 }
 
+/* === Table Container Enhancements for Horizontal Scroll === */
 .table-container {
-    overflow-x: auto;  /* Enables horizontal scroll */
-    max-width: 100%;   /* Ensures it stays within the page */
-    border: 1px solid #ccc;  /* Optional, just to visually contain the table */
+    overflow-x: auto;
+    max-width: 100%;
+    border: 1px solid #ccc;
 }
 
 table {
-    border-collapse: collapse;
-    width: max-content; /* Keeps full table width so it doesn't squish */
+    width: max-content;
 }
 
 th, td {
-    padding: 8px 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap;
 }
 
+/* === Handsontable Custom Styling === */
+#spreadsheet {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    overflow: auto;
+}
+
+.htCore td {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #ccc !important;
+}
+
+.htCore th {
+    color: #000000 !important;
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+}

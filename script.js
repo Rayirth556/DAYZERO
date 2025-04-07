@@ -1,59 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Customer Churn Analysis</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    
-</head>
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("📦 JS Loaded for Tabulator");
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    const form = document.getElementById("dataForm");
 
+    // Prevent Enter key from submitting the form accidentally
+    if (form) {
+        form.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+            }
+        });
+    }
 
-<body>
-    <h1>Customer Churn Prediction Dashboard</h1>
+    // === Prefill Form if fetchedRecord is available ===
+    if (typeof fetchedRecord === "object" && fetchedRecord !== null) {
+        console.log("🔍 Fetched record detected. Prefilling form...");
 
-    <div class="main-container">
-        <!-- === Left Form Panel === -->
-        <div class="left-panel">
-            <!-- === Data Entry Form === -->
-            <form method="post" action="/submit" id="dataForm">
-                {% for column in columns %}
-                    <label for="{{ column }}">{{ column.replace('_', ' ') }}:</label>
-                    <input type="text" id="{{ column.replace(' ', '_') }}" name="{{ column }}" placeholder="Enter {{ column.replace('_', ' ') }}">
-                    {% endfor %}
-                <button type="submit">Submit</button>
-            </form>
+        for (const [key, value] of Object.entries(fetchedRecord)) {
+            const inputId = key.replace(/\s+/g, "_");
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.value = value;
+            } else {
+                console.warn(`⚠️ No form input found for key: '${key}' ➜ id='${inputId}'`);
+            }
+        }
 
-            <!-- === Fetch by Name === -->
-            <form method="post" action="/fetch" class="fetch-form">
-                <label for="fetch_first_name">First Name:</label>
-                <input type="text" id="fetch_first_name" name="fetch_first_name" placeholder="Enter first name">
+        const submitBtn = document.getElementById("submitButton");
+        const updateBtn = document.getElementById("updateButton");
 
-                <label for="fetch_surname">Surname:</label>
-                <input type="text" id="fetch_surname" name="fetch_surname" placeholder="Enter surname">
+        if (submitBtn) submitBtn.style.display = "none";
+        if (updateBtn) updateBtn.style.display = "block";
 
-                <button type="submit">Fetch Details</button>
-            </form>
+        // Set edit index if valid
+        if (typeof editIndex === "number" && !isNaN(editIndex)) {
+            const hiddenInput = document.getElementById("edit_index");
+            if (hiddenInput) {
+                hiddenInput.value = editIndex;
+            }
+        }
 
-            <!-- === Upload CSV === -->
-            <form method="post" action="/upload" enctype="multipart/form-data" class="analyze-form">
-                <label for="file">Upload CSV File:</label>
-                <input type="file" name="file" id="file">
-                <button type="submit">Upload</button>
-            </form>
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-            <!-- === Download CSV === -->
-            <form method="get" action="/download" class="analyze-form">
-                <button type="submit">Download CSV</button>
-            </form>
-        </div>
+    // === Initialize Tabulator Spreadsheet ===
+    const tableContainer = document.getElementById("hot-table");
 
-        <!-- === Right Table Panel === -->
-        <div class="right-panel table-container">
-            {{ table | safe }}
-        </div>
-    </div>
-</body>
+    const safeTableData = Array.isArray(tableData) ? tableData : [];
+    const safeColumnHeaders = Array.isArray(columnHeaders) ? columnHeaders : [];
 
-</html>
+    const columns = safeColumnHeaders.map(col => ({
+        title: col,
+        field: col,
+        editor: "input"
+    }));
+
+    const table = new Tabulator(tableContainer, {
+        data: safeTableData,
+        columns: columns,
+        layout: "fitColumns",
+        height: "600px",
+        movableColumns: true,
+        resizableRows: true,
+        pagination: false,
+    });
+
+    // === Save Spreadsheet Handler ===
+    const saveBtn = document.getElementById("saveSpreadsheetBtn");
+    if (saveBtn) {
+        saveBtn.addEventListener("click", () => {
+            const updatedData = table.getData();
+            fetch("/save_spreadsheet", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ data: updatedData })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to save spreadsheet.");
+                return response.json();
+            })
+            .then(result => {
+                alert(result.message || "✅ Spreadsheet saved!");
+                window.location.reload();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("❌ Error saving spreadsheet.");
+            });
+        });
+    }
+});
