@@ -1,4 +1,4 @@
-/* Base styling */
+/* === Global Styling === */
 body {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body {
     padding-top: 30px;
 }
 
-/* Two-column layout */
+/* === Layout === */
 .main-container {
     display: flex;
     gap: 40px;
@@ -20,10 +20,7 @@ body {
     margin: 0 auto;
 }
 
-/* Left and right panels */
-.left-panel {
-    flex: 1;
-    max-width: 500px;
+.left-panel, .right-panel {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 30px 40px;
@@ -31,30 +28,31 @@ body {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.left-panel {
+    flex: 1;
+    max-width: 550px;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
 .right-panel {
     flex: 2;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px 40px;
-    box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow-x: auto;
 }
 
-/* Headings */
+/* === Headings === */
 h2, h3 {
     text-align: center;
     margin-bottom: 20px;
     color: #00e0ff;
 }
 
-/* Labels and inputs */
+/* === Form Labels and Inputs === */
 label {
     display: block;
-    margin: 15px 0 5px;
+    margin: 12px 0 6px;
     font-weight: 500;
     color: #e0f7fa;
 }
@@ -79,9 +77,9 @@ input:focus, select:focus {
     background-color: #111;
 }
 
-/* Buttons */
+/* === Buttons === */
 button {
-    margin-top: 15px;
+    margin-top: 18px;
     width: 100%;
     padding: 12px;
     border: none;
@@ -98,13 +96,13 @@ button:hover {
     background-color: #00bcd4;
 }
 
-/* Analyze and fetch form section spacing */
+/* === Forms (analyze/fetch) === */
 .analyze-form,
 .fetch-form {
     margin-top: 25px;
 }
 
-/* Result containers */
+/* === Data Display Containers === */
 .insight-box,
 .table-container {
     margin-top: 30px;
@@ -114,20 +112,16 @@ button:hover {
     border: 1px solid #00bcd4;
 }
 
-/* Container for table section */
 .table-container {
-    max-height: 90vh;
-    overflow-y: auto;
-    overflow-x: auto;
-    border-radius: 12px;
-    padding: 1rem;
+    max-height: 85vh;
+    overflow: auto;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    width: 100%;
 }
 
-/* Table styling */
+/* === Table Styling === */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -137,7 +131,6 @@ table {
     table-layout: fixed;
 }
 
-/* Column width adjustment */
 table th, table td {
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -150,11 +143,9 @@ table th {
     font-weight: 600;
 }
 
-/* Zebra row effect */
 table tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.02);
 }
-
 
 .data-table th, .data-table td {
     padding: 12px 15px;
@@ -167,7 +158,7 @@ table tr:nth-child(even) {
     color: #000;
 }
 
-/* Mobile responsiveness */
+/* === Responsive Adjustments === */
 @media screen and (max-width: 1000px) {
     .main-container {
         flex-direction: column;
@@ -180,3 +171,22 @@ table tr:nth-child(even) {
         max-width: 90%;
     }
 }
+
+.table-container {
+    overflow-x: auto;  /* Enables horizontal scroll */
+    max-width: 100%;   /* Ensures it stays within the page */
+    border: 1px solid #ccc;  /* Optional, just to visually contain the table */
+}
+
+table {
+    border-collapse: collapse;
+    width: max-content; /* Keeps full table width so it doesn't squish */
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+

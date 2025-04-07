@@ -1,49 +1,59 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("dataForm");
-    const nameInput = document.getElementById("name"); // Reference to the name input
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Analysis</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    
+</head>
 
-    function submitForm(event) {
-        event.preventDefault(); // Prevent page refresh
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
-        let formData = {
-            name: nameInput.value,
-            age: document.getElementById("age").value,
-            salary: document.getElementById("salary").value,
-            position: document.getElementById("position").value
-        };
 
-        fetch("http://127.0.0.1:5000/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("statusMessage").innerText = "Data Saved Successfully!";
-            document.getElementById("statusMessage").style.color = "green";
-            form.reset(); // Clear the form after successful submission
-            nameInput.focus(); // Move cursor back to "Name" input field
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            document.getElementById("statusMessage").innerText = "Error Saving Data!";
-            document.getElementById("statusMessage").style.color = "red";
-        });
-    }
+<body>
+    <h1>Customer Churn Prediction Dashboard</h1>
 
-    // Listen for the form submit event
-    form.addEventListener("submit", submitForm);
+    <div class="main-container">
+        <!-- === Left Form Panel === -->
+        <div class="left-panel">
+            <!-- === Data Entry Form === -->
+            <form method="post" action="/submit" id="dataForm">
+                {% for column in columns %}
+                    <label for="{{ column }}">{{ column.replace('_', ' ') }}:</label>
+                    <input type="text" id="{{ column.replace(' ', '_') }}" name="{{ column }}" placeholder="Enter {{ column.replace('_', ' ') }}">
+                    {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
 
-    // Enable Enter key submission in any input field
-    form.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Prevent form refresh
-            submitForm(event);
-        }
-    });
+            <!-- === Fetch by Name === -->
+            <form method="post" action="/fetch" class="fetch-form">
+                <label for="fetch_first_name">First Name:</label>
+                <input type="text" id="fetch_first_name" name="fetch_first_name" placeholder="Enter first name">
 
-    // Set cursor to "Name" input field on page load
-    nameInput.focus();
-});
+                <label for="fetch_surname">Surname:</label>
+                <input type="text" id="fetch_surname" name="fetch_surname" placeholder="Enter surname">
+
+                <button type="submit">Fetch Details</button>
+            </form>
+
+            <!-- === Upload CSV === -->
+            <form method="post" action="/upload" enctype="multipart/form-data" class="analyze-form">
+                <label for="file">Upload CSV File:</label>
+                <input type="file" name="file" id="file">
+                <button type="submit">Upload</button>
+            </form>
+
+            <!-- === Download CSV === -->
+            <form method="get" action="/download" class="analyze-form">
+                <button type="submit">Download CSV</button>
+            </form>
+        </div>
+
+        <!-- === Right Table Panel === -->
+        <div class="right-panel table-container">
+            {{ table | safe }}
+        </div>
+    </div>
+</body>
+
+</html>

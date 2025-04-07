@@ -1,66 +1,104 @@
-name,age,salary,position,yoe,bonus_percent,investment_expert,label, prediction
-Amit,48.0,76865.0,VP,1.0,10.0,Yes,increase,
-Riya,25.0,101628.0,Manager,17.0,15.0,No,decrease,
-Arjun,35.0,63785.0,Analyst,5.0,10.0,No,increase,
-Nina,31.0,64732.0,Analyst,13.0,5.0,No,increase,
-Dev,41.0,69873.0,Director,1.0,20.0,No,increase,
-Meena,27.0,99690.0,Analyst,7.0,15.0,No,decrease,
-Ravi,42.0,85279.0,Manager,12.0,5.0,No,decrease,
-Simran,28.0,119468.0,Manager,14.0,20.0,No,decrease,
-Kabir,46.0,114329.0,VP,2.0,20.0,No,decrease,
-Sanya,36.0,80899.0,Manager,8.0,10.0,Yes,decrease,
-Tarun,50.0,51512.0,Director,23.0,10.0,No,increase,
-Priya,31.0,89485.0,Manager,2.0,20.0,Yes,increase,
-Rakesh,44.0,61981.0,VP,24.0,5.0,No,decrease,
-Neha,31.0,57326.0,Analyst,13.0,5.0,Yes,increase,
-Jay,40.0,111077.0,Director,24.0,20.0,No,decrease,
-Shreya,39.0,78332.0,VP,11.0,10.0,No,decrease,
-Yash,28.0,84832.0,Analyst,10.0,10.0,Yes,decrease,
-Aarav,25.0,93277.0,VP,4.0,5.0,No,decrease,
-Isha,32.0,101691.0,Manager,17.0,25.0,No,increase,
-Pooja,29.0,67462.0,Manager,24.0,20.0,Yes,decrease,
-Karan,41.0,72192.0,Manager,11.0,20.0,No,increase,
-Alisha,32.0,92748.0,VP,10.0,20.0,No,decrease,
-Manav,38.0,74710.0,Manager,12.0,15.0,Yes,decrease,
-Divya,49.0,95991.0,VP,1.0,5.0,Yes,increase,
-Raj,30.0,108156.0,Analyst,12.0,25.0,Yes,increase,
-Sneha,32.0,51008.0,Manager,1.0,25.0,Yes,decrease,
-Harsh,50.0,80107.0,Manager,12.0,25.0,No,increase,
-Anjali,33.0,77439.0,Manager,20.0,10.0,Yes,decrease,
-Vivek,34.0,112379.0,Analyst,19.0,25.0,Yes,decrease,
-Deepa,38.0,101993.0,VP,4.0,5.0,No,decrease,
-Sameer,27.0,64404.0,Manager,18.0,25.0,No,increase,
-Tina,29.0,66168.0,Director,25.0,25.0,No,increase,
-Nikhil,49.0,52199.0,Director,20.0,10.0,No,increase,
-Asha,41.0,69060.0,VP,9.0,5.0,Yes,increase,
-Zoya,49.0,47742.0,Director,17.0,20.0,Yes,increase,
-Mihir,50.0,107010.0,Director,25.0,10.0,No,decrease,
-Farah,46.0,111206.0,Manager,23.0,25.0,No,increase,
-Rahul,40.0,111467.0,Analyst,24.0,25.0,No,decrease,
-Tanvi,49.0,45083.0,Director,18.0,25.0,Yes,increase,
-Ankit,50.0,73356.0,Analyst,24.0,15.0,No,increase,
-Reena,37.0,86938.0,Analyst,18.0,20.0,Yes,increase,
-Irfan,40.0,88019.0,Analyst,5.0,5.0,Yes,increase,
-Priti,41.0,68543.0,Analyst,4.0,5.0,No,increase,
-Ajay,25.0,106967.0,VP,24.0,5.0,Yes,decrease,
-Bhavna,30.0,101410.0,Manager,7.0,5.0,No,increase,
-Mohit,45.0,108030.0,Manager,25.0,25.0,No,decrease,
-Payal,40.0,104229.0,VP,6.0,10.0,Yes,increase,
-Varun,50.0,73255.0,Analyst,7.0,25.0,Yes,decrease,
-Tanya,38.0,61755.0,Analyst,24.0,20.0,Yes,decrease,
-Kunal,46.0,78895.0,Manager,15.0,25.0,No,increase,
-Rayirth,19.0,100000.0,Manager,,,,,
-Rayirth ,123456.0,2345678909876.0,Manager,12345.0,234.0,yes,,
-rtyhgfdeert,12345.0,123454323453234.0,Banker,1234.0,123.0,yes,,
-rrayirth,234542.0,2345543434.0,Banker,1233.0,1234.0,yes,,
-RAYIORTHQ,123456789.0,123456789876543.0,Bank manager,123.0,234567.0,yes,,
-Aagam Khan Jain,20.0,10.0,Chaprasi,1.0,0.0,no,,
-Lelihana kjumar,29.0,21471829412.0,senior dev,90.0,50.0,yes,,
-lelihana,90.0,100000.0,junior dev,10.0,90.0,yes,,
-dfadwf aegbj,123456.0,123456789.0,General Manager,1234.0,234.0,yes,,
-sdfghjkjhgfd,23456.0,234567898765432.0,Soft dev,12323.0,12342.0,yes,,
-wertyujik,123456789.0,1234523456534567.0,Chaprasi,12345.0,123456323456.0,yes,,
-Ashish Pandey,,1.2345678987654322e+23,Intern,6.0,23.0,yes,unknown,increase
-ihaejgahfkahfkeh,,1.2345654323456544e+37,Intern,23.0,23.0,yes,unknown,unknown
-chtu ,,0.0,Manager,3.0,4.0,yes,unknown,increase
-
+RowNumber,CustomerId,Surname,First Name,Date of Birth,Gender,Marital Status,Number of Dependents,Occupation,Income,Education Level,Address,Contact Information,Customer Tenure,Customer Segment,Preferred Communication Channel,Credit Score,Credit History Length,Outstanding Loans,Churn Flag,Churn Reason,Churn Date,Balance,NumOfProducts,NumComplaints
+1,83ef0b54-35f6-4f84-af58-5653ac0c0dc4,Smith,Troy,1987-08-29,Male,Divorced,3.0,Information systems manager,77710.14,High School,"26644 Diaz Viaduct
+North Jessicaville, VI 14852",001-301-934-3058x0825,30.0,Retail,Phone,397.0,24.0,41959.74,0.0,,,211359.05,1.0,0.0
+2,009f115a-e5ca-4cf4-97d6-530140545e4e,Sullivan,Katrina,2000-02-07,Female,Married,1.0,Charity fundraiser,58209.87,High School,"5642 Rachel Pass Suite 320
+Port Peggy, RI 75805",+1-581-683-4267,27.0,SME,Email,665.0,10.0,8916.67,0.0,,,30624.76,4.0,1.0
+3,66309fd3-5009-44d3-a3f7-1657c869d573,Fuller,Henry,1954-02-03,Female,Single,1.0,Television production assistant,9794.01,High School,"00025 Brittany Flats Apt. 543
+New Amandaborough, MH 69279",9753900004,14.0,Retail,Email,715.0,21.0,43270.54,0.0,,,111956.61,2.0,6.0
+4,b02a30df-1a5f-4087-8075-2a35432da641,Young,Antonio,1991-01-15,Female,Divorced,5.0,Agricultural engineer,15088.98,High School,"Unit 3386 Box 0088
+DPO AE 71940",+1-928-477-2856x660,23.0,Corporate,Phone,747.0,17.0,17887.65,0.0,,,201187.61,1.0,0.0
+5,0d932e5b-bb3a-4104-8c83-f84270f7f2ea,Andersen,John,1992-04-08,Female,Divorced,2.0,"Teacher, early years/pre",60726.56,Master's,"0120 Leslie River
+West Lindseychester, MN 98290",204.515.2388,22.0,Corporate,Email,549.0,25.0,32686.84,0.0,,,60391.24,5.0,6.0
+6,c18b027e-b108-4900-b413-dac87e2ee9b5,Gonzales,Ashley,1987-11-28,Male,Single,0.0,"Surveyor, building",55608.75,Bachelor's,"PSC 3787, Box 9869
+APO AP 62324",001-880-967-5883x0508,15.0,Retail,Email,809.0,27.0,37218.81,1.0,Account Closure,2024-07-31,31206.81,2.0,10.0
+7,7091e271-7d2b-4e73-934f-8398e2a1dcbc,Wilcox,Daniel,1976-09-07,Female,Single,1.0,Publishing copy,22032.61,Diploma,"983 Adams Coves
+Lake Roberto, MP 82550",4756961139,15.0,Retail,Email,690.0,29.0,26200.0,0.0,,,198443.5,2.0,1.0
+8,d5e80b75-bd3f-4d8a-b847-0868f8eb9e40,Lopez,Johnny,1993-08-05,Male,Divorced,4.0,Industrial buyer,73462.72,Diploma,"905 Jackson View Suite 009
+South Amymouth, PA 54407",001-577-988-4031x4410,3.0,Corporate,Email,605.0,30.0,25156.25,0.0,,,96378.05,4.0,6.0
+9,9eba62c1-0af0-4424-9218-435ece0689aa,Miles,Kelly,2001-08-03,Male,Divorced,3.0,Medical sales representative,30054.43,Bachelor's,"6398 Morgan Knolls
+Julieborough, NH 55183",001-245-374-7034x4970,20.0,Corporate,Phone,634.0,16.0,41854.08,0.0,,,108395.17,5.0,1.0
+10,4eea7068-ea07-4898-bb04-6ccd8b729fc9,Thompson,Anthony,1991-01-12,Female,Divorced,5.0,Media buyer,24129.53,Master's,"674 Reed Islands
+Loweville, TX 67579",+1-814-630-2270x6096,21.0,SME,Phone,831.0,10.0,30914.02,0.0,,,99830.84,4.0,5.0
+11,ecdf1f7f-2341-432e-85a8-4ba806d3c1ef,Morrison,Donald,1974-07-17,Male,Married,5.0,Sales executive,58523.79,Bachelor's,"385 Martinez Port Suite 203
+Ricefort, PA 75457",(806)258-1579x70371,26.0,Corporate,Email,759.0,18.0,26021.64,0.0,,,141823.51,5.0,5.0
+12,c4ec24ec-8f81-451f-8b14-eaf5c0765be9,Schwartz,Angela,1994-11-30,Male,Divorced,5.0,"Engineer, biomedical",17009.77,High School,"495 Thornton Fork Suite 422
+West Rubenmouth, MD 54759",+1-793-776-3624x02031,22.0,Corporate,Phone,332.0,14.0,35937.1,0.0,,,122931.63,5.0,9.0
+13,03169a54-fb8e-46e7-a795-26feead5a8e4,Cain,Elizabeth,1950-05-21,Female,Single,2.0,"Development worker, international aid",83160.48,Diploma,"54436 Colin Bridge
+Dustinhaven, AK 07204",+1-657-684-6950x96745,12.0,SME,Email,688.0,9.0,41808.44,0.0,,,216944.39,2.0,8.0
+14,d9188e85-2926-412f-8083-1bcb7f5d1ffd,Wagner,James,1996-04-01,Female,Single,1.0,Health and safety adviser,35415.53,High School,"116 Yvette Drive
+New Amanda, NY 31796",(266)785-1559,22.0,SME,Email,750.0,12.0,35513.69,0.0,,,31446.19,2.0,0.0
+15,f3485bfa-d927-4d68-b61a-77c9999dbd65,Zimmerman,David,1956-04-14,Female,Married,4.0,"Scientist, research (maths)",44108.56,Diploma,"9361 Angela Stream Apt. 303
+Fernandoberg, NM 11971",001-837-537-0263x34118,22.0,SME,Email,609.0,28.0,46330.11,0.0,,,126906.93,3.0,10.0
+16,55ef7db8-346b-430d-8fe3-ffd4e1382850,Stout,Charles,1956-07-05,Male,Single,2.0,Soil scientist,10051.24,Diploma,"7593 Weiss Radial
+South Brian, PA 32423",+1-429-457-9937x9101,13.0,Corporate,Phone,678.0,3.0,15156.6,0.0,,,143624.95,2.0,10.0
+17,963aaa61-c10f-46cb-be53-51505d395bd1,Medina,Adam,1996-10-24,Male,Divorced,2.0,Animal nutritionist,19725.99,Master's,"5990 Douglas Street Apt. 578
+Robertsonmouth, ID 08914",544.773.2718x2419,23.0,Retail,Email,399.0,22.0,31765.09,1.0,Relocation,2024-04-30,18249.32,4.0,10.0
+18,c0d1baf8-eb34-4fa0-9784-98cea756acb5,Barker,Kelly,1974-04-14,Male,Married,1.0,Secondary school teacher,19632.81,Master's,"31762 Eric Oval
+East Dannytown, TX 86233",278.430.8589,8.0,Corporate,Email,744.0,17.0,7803.87,0.0,,,72541.01,4.0,10.0
+19,b307039e-5723-4cfe-b793-cdb0822a66d9,Garcia,Mandy,1976-10-26,Female,Married,1.0,Civil Service administrator,17002.05,Diploma,"3267 Haynes Roads Apt. 605
+Knightview, MD 25372",747-623-3046,23.0,Retail,Email,516.0,30.0,37680.08,1.0,Account Closure,2024-05-05,47496.0,1.0,6.0
+20,859e5501-c58d-48bb-b20b-e19fbccb9712,Coleman,Robert,1982-09-09,Female,Single,0.0,"Engineer, site",69930.91,High School,"27728 Amber Lakes Suite 809
+Isaiahstad, FL 75598",001-301-733-2261x5048,14.0,Retail,Email,790.0,8.0,29280.66,0.0,,,60845.11,1.0,6.0
+21,4edc97b3-f6bf-45dd-8cfb-b8f1c82be8a5,Jones,Nathaniel,1963-05-29,Male,Married,1.0,"Engineer, biomedical",65032.92,Master's,"10225 Floyd Mountain Apt. 167
+North Ruthfurt, AL 09967",4828732509,26.0,Corporate,Email,414.0,12.0,2381.23,0.0,,,141183.72,2.0,3.0
+22,a654eb64-9cce-4cd7-835a-5c9a1d73cb33,Martinez,Kevin,1990-01-15,Male,Single,0.0,"Engineer, civil (contracting)",39981.11,Bachelor's,"Unit 9654 Box 7101
+DPO AE 25766",2685896429,25.0,Retail,Phone,437.0,2.0,6761.18,1.0,Account Closure,2024-06-13,75231.59,2.0,9.0
+23,f6610a9c-2211-4325-a4cc-338d1e241942,Smith,Amber,1960-03-06,Male,Single,0.0,"Psychotherapist, child",91831.65,Master's,"075 Kayla Meadows
+West Suzanneborough, GA 39362",283-375-1330x99703,18.0,SME,Phone,394.0,27.0,6976.75,0.0,,,235451.48,5.0,1.0
+24,2697df06-107d-42da-813e-c2fd9d9c9faf,Alexander,Katherine,2004-05-30,Female,Divorced,0.0,Conference centre manager,78471.18,Master's,"7934 Sherri Road Suite 070
+Mcphersonview, ME 11381",322.423.3535,24.0,Corporate,Email,393.0,21.0,5417.06,0.0,,,83954.38,3.0,1.0
+25,3ccb2f7a-79fb-41f5-ae80-cb6e105e36c4,Wright,James,1984-05-18,Male,Married,0.0,Product/process development scientist,92292.74,High School,"34888 Ewing Extension
+East Stacey, NC 70915",618.651.6739,16.0,Retail,Phone,520.0,29.0,36332.9,0.0,,,169581.13,3.0,0.0
+26,32330b49-1bc9-4919-9c6a-df85922b6d9e,Patterson,Martin,1965-03-21,Male,Married,4.0,Broadcast engineer,52775.33,High School,"89958 Kimberly Path Apt. 568
+Melissaside, IL 30681",757.221.3548,16.0,Retail,Phone,515.0,26.0,5663.8,0.0,,,233471.12,4.0,8.0
+27,70686864-3867-47b7-90c3-e430d33aea5d,Grimes,Margaret,1963-09-07,Male,Married,1.0,Patent attorney,14710.59,High School,"06816 Jamie Cove
+Kimberlyhaven, AR 70345",(820)943-6700,13.0,SME,Phone,559.0,28.0,39797.76,0.0,,,114903.09,2.0,0.0
+28,8d0c44ff-8b1c-4730-88cd-ac38fbd4fbab,Gibbs,Andrew,1949-01-07,Male,Divorced,1.0,Insurance claims handler,46317.6,High School,"4200 James Ridge Suite 813
+Cruzchester, NC 16073",001-428-662-3411,26.0,Retail,Email,387.0,22.0,12373.92,0.0,,,224404.73,4.0,0.0
+29,cd143610-b0ea-4329-9ba8-b5e7f7d3b4b2,Herrera,Kristin,1979-07-31,Female,Single,4.0,Police officer,40613.05,Bachelor's,"526 Wilkinson Fall Suite 019
+Camposland, VA 86709",640.785.9411x27299,28.0,Retail,Phone,309.0,29.0,16896.93,0.0,,,88966.86,4.0,0.0
+30,70a68ec5-f9d8-44b9-937b-3aab650d9c70,Sanchez,Peter,1970-03-20,Male,Divorced,2.0,Counselling psychologist,57344.57,High School,"55088 Andrew Spurs Apt. 179
+Port Curtischester, MN 51815",001-562-983-2008x471,8.0,SME,Phone,829.0,5.0,37993.92,0.0,,,40478.17,4.0,6.0
+31,52daf603-0a34-4ee2-8e04-6fe371b898b4,Rich,Daniel,1977-12-07,Male,Divorced,4.0,Insurance account manager,71236.42,High School,"519 Cameron Isle Suite 807
+Ginabury, VA 37351",682-722-6447x5212,24.0,SME,Phone,683.0,15.0,23390.07,0.0,,,248242.41,5.0,4.0
+32,090cb93e-a282-4973-8b7d-749b960f2f0d,Alvarez,Traci,1953-08-20,Female,Divorced,1.0,Theatre stage manager,88336.88,High School,"40761 Lee Crescent
+Lake Jeremy, UT 93481",708-941-9197x30995,3.0,SME,Phone,617.0,11.0,42389.15,0.0,,,87306.22,4.0,4.0
+33,7b3bb9c9-2b18-4867-bf44-d788dc51ab72,Miller,Natasha,1965-09-30,Female,Married,1.0,Research scientist (life sciences),64467.74,Bachelor's,"Unit 5407 Box 0076
+DPO AE 26839",(495)214-5361x3421,7.0,SME,Email,303.0,14.0,22006.17,0.0,,,160303.04,3.0,5.0
+34,8bbd3ae3-b050-4623-868f-e09e462f57f0,Greene,Lisa,1992-01-19,Female,Married,3.0,Multimedia programmer,53756.54,High School,"25814 Perez Turnpike
+Danielton, VT 82832",(316)840-8270,9.0,Corporate,Email,668.0,8.0,36169.98,0.0,,,87776.33,4.0,7.0
+35,f865ccfa-d873-420f-b1c3-9cac7fab1096,Norris,Martin,1971-02-14,Female,Married,3.0,"Designer, interior/spatial",80229.05,Diploma,"07401 Andre Turnpike Suite 401
+Matthewsborough, MO 97605",(536)940-6998x37635,12.0,Retail,Phone,800.0,15.0,46050.22,0.0,,,177098.69,3.0,9.0
+36,2f10e6ab-5753-474e-a6ec-85923c4b1660,Roach,Joseph,1975-02-19,Male,Single,2.0,Risk analyst,98732.96,High School,"22024 Boyd Branch Apt. 937
+North Brian, WI 64947",732.584.4173x25305,26.0,Retail,Phone,682.0,22.0,29249.65,0.0,,,196614.71,5.0,2.0
+37,344350d9-0447-4ac3-bb07-a5f9f6fa0529,Maxwell,James,1996-05-30,Male,Single,5.0,Podiatrist,50627.29,Bachelor's,"71357 Robert Skyway Apt. 019
+East David, IL 08628",(755)273-7818x83131,8.0,Corporate,Phone,459.0,6.0,6271.79,1.0,Account Closure,2024-03-06,40373.67,3.0,10.0
+38,f452fc73-c271-48bc-891d-1682af41d073,Murphy,Robert,1961-09-03,Female,Divorced,2.0,"Physicist, medical",83123.02,Master's,"USNS Carter
+FPO AP 32808",(873)219-2385x88643,25.0,SME,Phone,795.0,24.0,25245.19,0.0,,,76710.95,1.0,3.0
+39,a7cd265f-5016-4ec8-b37e-ab147607193a,Wallace,Robert,1957-07-03,Female,Divorced,0.0,Customer service manager,21518.49,Master's,"25204 Gibbs Drives Suite 919
+West Brandonfurt, IA 34492",343.935.4784x632,23.0,SME,Phone,364.0,2.0,5232.36,0.0,,,127097.74,1.0,4.0
+40,105bafc2-7ae8-462d-a48b-1e6964bb806a,Gould,George,1982-10-14,Male,Single,0.0,Counselling psychologist,87512.21,Bachelor's,"34417 Gutierrez Rest
+West Michaelton, OH 96732",629-225-6321,26.0,SME,Email,829.0,7.0,31164.72,0.0,,,27852.11,5.0,7.0
+41,dd9e9aee-a971-46d9-8702-0d5f7fb26b7b,Harris,Charles,2006-03-01,Male,Divorced,5.0,Housing manager/officer,85636.57,High School,"868 Franklin Island
+Lake Jasonport, KY 52366",800-261-9917x259,16.0,SME,Phone,415.0,29.0,48322.31,0.0,,,63093.16,1.0,2.0
+42,60ea75de-8bc6-4662-b969-c0a04ba085ab,Perez,Loretta,1965-11-17,Male,Single,3.0,Armed forces operational officer,23790.18,Diploma,"170 Henry Drive
+West Melissafurt, NY 65612",(671)622-8120x4326,28.0,Corporate,Email,447.0,11.0,40597.98,0.0,,,64127.57,5.0,1.0
+43,0d491358-43dd-4c0b-bac1-a32ae4fa7c8e,Rice,Debbie,2001-12-14,Male,Single,0.0,Press photographer,98489.19,Bachelor's,"4762 Martinez Highway Suite 489
+Annetteberg, CA 21048",+1-678-366-5266x3533,27.0,SME,Phone,592.0,27.0,28528.36,0.0,,,225678.58,3.0,2.0
+44,e4eca155-849d-4abb-abde-f4bb0e6a61fe,Brooks,Christine,1967-10-11,Male,Single,3.0,Estate manager/land agent,64933.28,Bachelor's,"2619 Jennifer Place
+Robertfort, AK 84796",001-841-721-3909x9446,30.0,Corporate,Email,408.0,18.0,33691.3,0.0,,,57845.5,3.0,3.0
+45,4f022fa2-be35-4722-9953-aacab2e7106a,Jones,Sue,1971-01-24,Male,Married,3.0,"Presenter, broadcasting",72063.83,Diploma,"PSC 2628, Box 3296
+APO AE 14581",597.457.7583x23070,21.0,SME,Email,453.0,14.0,36268.21,0.0,,,97674.07,5.0,9.0
+46,37969a52-01fe-4978-b3de-3d1344130e23,Ramos,Samantha,1978-01-30,Male,Divorced,2.0,Restaurant manager,23819.57,Diploma,"USS Henderson
+FPO AE 84553",(294)535-5189x7036,27.0,Corporate,Email,850.0,12.0,13055.58,0.0,,,42643.8,3.0,7.0
+47,170389a2-3fff-4f04-b7e3-d256669d7426,Johns,Clayton,1952-03-07,Male,Married,4.0,Photographer,43893.01,Master's,"2166 William Prairie
+Nelsonstad, KS 42129",344-334-7362,16.0,SME,Email,343.0,23.0,10827.3,0.0,,,193263.84,5.0,10.0
+48,83262452-22bb-4aa9-aace-65dfe7fd2577,Montgomery,Kristen,1956-01-26,Male,Single,1.0,"Teacher, primary school",50043.77,Diploma,"928 Everett Key Suite 786
+Haletown, TN 70913",001-589-695-6138,19.0,Retail,Phone,644.0,26.0,25673.56,0.0,,,134404.42,2.0,10.0
+49,2ebda639-4925-44c5-8605-d08798e656f1,Nichols,Monica,1959-08-21,Female,Single,3.0,"Psychotherapist, dance movement",60947.5,Diploma,"41418 Patel Underpass Apt. 868
+East Melanie, MI 16654",001-686-927-5622x2766,30.0,SME,Phone,356.0,5.0,18190.69,0.0,,,118613.65,5.0,10.0
+50,16738cad-b800-4d15-95db-a4d5dc55c15d,Lane,Mark,1983-07-28,Female,Single,0.0,Water quality scientist,11078.92,Bachelor's,"PSC 0463, Box 5293
+APO AA 29518",989-257-1187x03387,5.0,Corporate,Phone,709.0,5.0,17685.73,0.0,,,157076.39,2.0,2.0
+23,,,,,,,,,,,,,,,,,,,,,,,,
+32,,,,,,,,,,,,,,,,,,,,,,,,
+r,,,,,,,h,,,,,,,,,,,,,,,,5,
