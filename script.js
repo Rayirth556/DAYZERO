@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (input) {
                 input.value = value;
             } else {
-                console.warn(`⚠️ No form input found for key: '${key}' ➜ id='${inputId}'`);
+                console.warn(⚠ No form input found for key: '${key}' ➜ id='${inputId}');
             }
         }
 
