@@ -1,4 +1,4 @@
-#mera naam murgo mera kaam chudno
+#mera naam murgo mera kaam chudno, dude rayirth please make your shit work man
 from flask import Flask, request, render_template, jsonify, redirect, flash, url_for
 import pandas as pd
 import joblib
