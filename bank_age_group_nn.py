@@ -14,7 +14,7 @@ for col in ['Income', 'Credit Score', 'Credit History Length', 'Outstanding Loan
     data[col] = data[col].fillna(data[col].median())
 
 data['Date of Birth'] = pd.to_datetime(data['Date of Birth'])
-data['Age'] = ((datetime(2025, 4, 7) - data['Date of Birth']).dt.days / 365.25).astype(int)
+data['Age'] = ((datetime(2025, 4, 7) - data['Date of Birth']).dt.days / 365.25).astype(str)
 
 y = data['Churn Flag']
 X = data.drop(columns=['Churn Flag'])
@@ -100,6 +100,18 @@ cat_pred_data = pd.concat([
 
 occupation_churn = cat_pred_data.groupby('Occupation')['Predicted Churn'].mean().reset_index()
 top_churn_occupations = occupation_churn.sort_values(by='Predicted Churn', ascending=False).head(10)
+
+import joblib
+
+# Save the trained model
+joblib.dump(model, 'xgboost_churn_model.pkl')
+
+# Save the scaler
+joblib.dump(scaler, 'scaler.pkl')
+
+# Save the encoder (if used)
+joblib.dump(TargetEncoder, 'target_encoder.pkl')
+
 
 # Plot layout
 fig = plt.figure(figsize=(18, 12), constrained_layout=True)
