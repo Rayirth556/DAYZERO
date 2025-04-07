@@ -16,7 +16,7 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1900px;
     margin: 0 auto;
 }
 
@@ -114,14 +114,47 @@ button:hover {
     border: 1px solid #00bcd4;
 }
 
-/* Table styles */
-.data-table {
+/* Container for table section */
+.table-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 12px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+/* Table styling */
+table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    margin-top: 10px;
+    font-size: 0.95rem;
+    text-align: left;
+    color: #eee;
+    table-layout: fixed;
 }
+
+/* Column width adjustment */
+table th, table td {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    word-wrap: break-word;
+}
+
+table th {
+    background-color: rgba(0, 180, 255, 0.1);
+    color: #00d8ff;
+    font-weight: 600;
+}
+
+/* Zebra row effect */
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
 
 .data-table th, .data-table td {
     padding: 12px 15px;
