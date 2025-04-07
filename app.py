@@ -1,5 +1,3 @@
-#hello murgooooo, aagam teri maa nangi hai
-
 from flask import Flask, request, render_template, jsonify
 import pandas as pd
 import joblib
